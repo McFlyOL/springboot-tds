@@ -25,29 +25,51 @@ public class MainController {
     
     @ModelAttribute("items") 
     public List<Element> getItems(){
-        return new ArrayList<>();
+        ArrayList<Element> array = new ArrayList<Element>();
+        array.add(new Element("Gallier",7));
+        array.add(new Element("Lefranc",9));
+        return array;
     }
 
+    /**
+     * Affichage du formulaire de saisie
+     * @return
+     */
     @GetMapping("/items/new")
-    public String newItems(){
-        return "newItem";
+    public String newElementForm(){
+        return "newElement";
     }
 
+    /**
+     * Validation du formulaire
+     * @param nom passé par le POST du form
+     * @param items en session
+     * @return
+     */
     @PostMapping("items/addNew")
     public RedirectView addNew(@RequestParam String nom,@SessionAttribute List<Element> items) {
-        items.add(new Element(nom));
+        items.add(new Element(nom,10));
         return new RedirectView("/items/");
     }
 
     @GetMapping("/items/inc/{nom}")
     public RedirectView increase(@RequestParam String nom,@SessionAttribute List<Element> items){
-        items.
+        
+        for(Element element : items){
+            if(element.equals(nom)){
+                element.setEvaluation(element.getEvaluation()+1);
+            }
+        }
         return new RedirectView("/items/");
     }
 
     @GetMapping("/items/dec/{nom}")
     public RedirectView decrease(@RequestParam String nom,@SessionAttribute List<Element> items){
-        items.
+        for(Element element : items){
+            if(element.equals(nom)){
+                element.setEvaluation(element.getEvaluation()-1);
+            }
+        }
         return new RedirectView("/items/");
     }
 }

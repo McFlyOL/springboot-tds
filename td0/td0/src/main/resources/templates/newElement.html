@@ -1,3 +1,17 @@
-<form method="POST" action="/items/addNew">
-<input name="nom" type="text">
-</form>
+{{>header}}
+
+
+<div class="container">
+    <div class="alert alert-primary mt-5">
+        <form method="POST" action="/items/addNew">
+            <h2 class="text-center">Ajout d'un nouvel item</h2>
+            <label for="">
+                Nom de l'item : 
+            </label>
+            <input class="form-control col-4 mb-3" name="nom" type="text">
+        </form>
+    </div>
+    <input type="submit" class="form-control col-4 d-block mx-auto btn btn-success" value="Valider">
+</div>
+
+{{>footer}}
