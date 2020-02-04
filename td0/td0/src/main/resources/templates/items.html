@@ -7,11 +7,11 @@
                 {{# list_items}} 
                     <div class="row p-2">
                         <p class="col text-uppercase">{{libelle}}</p>
-                        <p class="col">{{nom}}</p>
-                        <p class="col">{{evaluation}}</p>
+                        <p class="col text-dark">{{nom}}</p>
+                        <p class="col text-dark">{{evaluation}}</p>
                         <a class="col-1 font-weight-bold" href="/items/dec/{{nom}}">-</a>
                         <a class="col-1 font-weight-bold" href="/items/inc/{{nom}}">+</a>
-                        <button class="font-weight-bold text-center alert alert-danger" href="/items/delete/{{nom}}">Supprimer</button>
+                        <a class="font-weight-bold alert alert-danger" href="/items/delete/{{nom}}">Supprimer</a>
                     </div>
                 {{/list_items}} 
              {{/items}}
