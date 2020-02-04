@@ -4,12 +4,15 @@
     <div class="alert alert-primary mt-5">
             <h2 class="text-center">Liste des Elements</h2>
             {{ # items }}
-            <div class="row p-2">
-                <p class="col">{{nom}}</p>
-                <p class="col">{{evaluation}}</p>
-                <a class="col-1" href="items/dec/{{nom}}">-</a>
-                <a class="col-1" href="items/inc/{{nom}}">+</a>
-            </div>
+                {{# list_items}} 
+                    <div class="row p-2">
+                        <p class="col">{{libelle}}</p>
+                        <p class="col">{{nom}}</p>
+                        <p class="col">{{evaluation}}</p>
+                        <a class="col-1" href="/items/dec/{{nom}}">-</a>
+                        <a class="col-1" href="/items/inc/{{nom}}">+</a>
+                    </div>
+                {{/list_items}} 
              {{/items}}
     </div>
 </div>
