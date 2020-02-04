@@ -87,7 +87,7 @@ public class MainController {
         return null;
     }
 
-    public Categorie getListParNom(String nom, @SessionAttribute List<Categorie> items)
+    public Categorie getListNom(String nom, @SessionAttribute List<Categorie> items)
     {
         for (Categorie categorie : items) {
             for(Element element : categorie.getList())
@@ -114,7 +114,7 @@ public class MainController {
 
     @GetMapping("/items/delete/{nom}")
     public RedirectView delete(@PathVariable String nom,@SessionAttribute List<Categorie> items){
-        getElement(nom, items).setEvaluation(getElement(nom, items).getEvaluation()-1);
+        getListNom(nom, items).getList().remove(getElement(nom, items));
         return new RedirectView("/items");
     }
 }
