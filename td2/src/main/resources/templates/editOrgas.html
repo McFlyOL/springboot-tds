@@ -1,0 +1,23 @@
+{{ >./build/header }}
+    <h1>Modifier cette organisation</h1>
+
+    <form action="/orgas/edit" method="POST" form class="ui form">
+      <input type="hidden" name="id" value="{{orga.id}}">
+        <div class="field">
+          <label>Name</label>
+          <input type="text" name="nom" value="{{orga.name}}" placeholder="Name">
+        </div>
+        <div class="field">
+          <label>Domain</label>
+          <input type="text" name="domain" value="{{orga.domain}}" placeholder="Domain">
+        </div>
+        <div class="field">
+            <label>Aliases</label>
+            <input type="text" name="alias" value="{{orga.aliases}}" placeholder="Aliases">
+        </div>
+        <div class="ui grid column padded">
+            <button type="submit" class="positive ui button column two wide">Validate</button>
+            <a class="column ui button two wide" href="/orgas/">Cancel</a>
+        </div>
+      </form>
+{{ >./build/footer }}
