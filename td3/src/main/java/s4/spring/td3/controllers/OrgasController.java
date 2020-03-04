@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.servlet.view.RedirectView;
 
+import io.github.jeemv.springboot.vuejs.VueJS;
+import io.github.jeemv.springboot.vuejs.utilities.Http;
 import s4.spring.td3.entities.Groupe;
 import s4.spring.td3.entities.Organization;
 import s4.spring.td3.repositories.GroupeRepository;
@@ -31,13 +33,30 @@ public class OrgasController {
     @Autowired
     private GroupeRepository repoGroupe;
 
+    @Autowired
+    private VueJS vue;
+
     @GetMapping({"/orgas", "" ,"/"})
     public String viewListeCategorie(ModelMap model){
-
+        /*vue.addData("message","Test de message");
+        vue.addData("copie");
+        vue.addData("names",new String[] {"Bob","Bip",});
+        vue.addDataRaw("captions","['Name','domain','aliases']");
+        vue.addMethod("doCopie", "this.copie=this.message");*/
+        
         List<Organization> orgas = repoOrga.findAll();
-        model.put("orgas", orgas);
+        model.put("orgas",orgas);
 
         return "index";
+    }
+
+    @GetMapping("/dt")
+    public String dataTable(ModelMap model){
+        vue.addDataRaw("headers", "[{text:'ID',value:'id'},{text:'Name',value:'name'},{text:'Aliases',value:'aliases'}]");
+        vue.addData("datas",repoOrga.findAll());
+        //vue.addMethod("save", Http.get("dt", datas, successCallback));
+        model.put("vue",this.vue);
+        return "dataTable";
     }
 
     @GetMapping("/new")

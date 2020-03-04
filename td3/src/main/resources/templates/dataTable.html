@@ -1,0 +1,25 @@
+{{ >./build/header }}
+<div>
+    <%message%>
+  </div>
+  <input v-model="message"> 
+  <input v-model="copie"> 
+  <button @click="doCopie">Copier</button>
+
+  <li v-for="name in names">
+    <%name%>
+  </li>
+  <h3>Caption</h3>
+  <li v-for="c in captions">
+    <%c%>
+  </li>
+</div>
+<template>
+    <div>
+      <v-data-table :headers="headers" :items="datas">
+        <button @click="save">Copier</button>        
+      </v-data-table>
+    </div>
+  </template>
+  {{ >./build/footer }}
+{{{vue}}}

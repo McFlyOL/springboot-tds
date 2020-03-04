@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -24,6 +23,9 @@ public class RestOrgasController {
     @Autowired
     private GroupeRepository repoGroupe;
 
+    RestOrgasController(OrgaRepository repo) {
+        this.repoOrga = repo;
+      }
     @GetMapping("/rest/orgas")
     public List<Organization> read(){
         return repoOrga.findAll();
@@ -41,15 +43,10 @@ public class RestOrgasController {
 
     @PutMapping("/rest/orgas/update")
     public Organization update(@RequestBody Organization organization){
-        if(repoOrga.findById(organization.getId()) != null){
             repoOrga.findById(organization.getId()).setName(organization.getName());
             repoOrga.findById(organization.getId()).setDomain(organization.getDomain());
             repoOrga.findById(organization.getId()).setAliases(organization.getAliases());
-            return repoOrga.findById(organization.getId());
-        }else{
-            organization.setId(organization.getId());
-            return repoOrga.save(organization);
-        }
+            return repoOrga.findById(organization.getId());        
     }
 
     @DeleteMapping("/rest/orgas/delete/{id}")
