@@ -24,20 +24,23 @@ SpringBoot TD'S
 * Front-end :
   * SPA vueJS
   * Vuetify
+  
+ **Evaluation**
+ -----------------
  
-**[TD5 : SpringBoot](https://github.com/McFlyOL/springboot-tds/tree/td5)**
+ **[TD5 : SpringBoot](https://github.com/McFlyOL/springboot-tds/tree/td5)**
 
-* Back-end :
-  * Routes
-  * Controllers
-  * Models
-  * JPA/Hibernate
+ * Back-end :
+   * Routes
+   * Controllers
+   * Models
+   * JPA/Hibernate
  
-**[TD6 : SpringBoot - VueJS]()**
+ **[TD6 : SpringBoot - VueJS]()**
 
-* Back-end :
-  * Service Rest
-  * Génération SPA
-* Front-end :
-  * SPA vueJS
-  * Semantic-UI Vue
+ * Back-end :
+   * Service Rest
+   * Génération SPA
+ * Front-end :
+   * SPA vueJS
+   * Semantic-UI Vue
