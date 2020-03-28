@@ -9,6 +9,6 @@ public interface repositoryUser extends JpaRepository<User,Integer>
 {
     List<User> findAll();
     User findById(int Id);
-    User findByName(String name);
+    User findByFirstname(String firstname);
     User findByEmail(String email);
 }

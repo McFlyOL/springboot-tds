@@ -1,0 +1,17 @@
+{{>static/header}}
+<h2 class="ui center aligned container">Log in to your account</h2>
+<form class="ui form" action="/verifLogin" method="post">
+    {{#prob_co}}
+        {{prob_co}}
+    {{/prob_co}}
+    <div class="field">
+        <label>Login</label>
+        <input type="text" name="name" placeholder="Login" required>
+    </div>
+    <div class="field">
+        <label>Password</label>
+        <input type="password" name="password" required>
+    </div>
+    <button class="ui button center" type="submit">Connect</button>
+</form>
+{{>static/footer}}

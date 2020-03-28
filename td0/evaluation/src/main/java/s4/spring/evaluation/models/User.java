@@ -18,6 +18,18 @@ public class User {
     private String password;
     private String suspended;
 
+    public User()
+    {
+
+    }
+
+    public User(String name, String password, String email)
+    {
+        this.firstname=name;
+        this.password=password;
+        this.email=email;
+    }
+
     public int getId() {
         return id;
     }

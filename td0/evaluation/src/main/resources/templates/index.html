@@ -1,0 +1,27 @@
+{{>static/header}}
+<div class="ui middle aligned center aligned grid">
+    <div class="column">
+        <h1>Gestion de Scripts | INDEX</h1>
+        <h2 class="ui teal image header">
+            {{#connection}}
+                Vous êtes connecté {{#userC}}{{firstname}}{{/userC}}              
+            {{/connection}}    
+
+            {{#message_deco}}
+                {{message_deco}}
+            {{/message_deco}}     
+        </h2>      
+    </div>  
+</div>
+<div class="ui middle align center aligned container">
+    {{#message_deco}}
+        <a href="/login" class="ui button center" tabindex="0">Login</a>
+    {{/message_deco}} 
+</div>
+<div class="ui middle align center aligned grid">
+    {{#connection}}
+        <a href="/logout" class="ui button center" tabindex="0">Logout</a>
+    {{/connection}}
+</div>
+
+{{>static/footer}}

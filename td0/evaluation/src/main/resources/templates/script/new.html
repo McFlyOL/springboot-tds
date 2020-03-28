@@ -1,0 +1,44 @@
+{{>static/header}}
+<form class="ui form" action="/script/submit" method="post">
+    <div class="ui middle aligned center aligned grid">
+        <h1>Gestion de Scripts | INDEX</h1>
+    </div>
+    <div class="field">
+        <label>Title</label>
+        <input type="text" name="title" placeholder="Title">
+    </div>
+    <div class="field">
+        <label>Description</label>
+        <textarea type="text" name="description" placeholder="You'r description ..."></textarea>
+    </div>
+    <div class="field">
+        <label>Content</label>
+        <textarea name="content"></textarea>
+    </div>
+    <div class="field">
+        <label>Creation date</label>
+        <input type="date" name="creationDate">
+    </div>
+    <div class="field">
+        <label>Category</label>
+        <select class="ui fluid search dropdown" name="category">
+            {{#category}}
+            <option value="{{name}}">{{name}}</option>
+            {{/category}}
+        </select>
+    </div>
+    <div class="field">
+        <label>Language</label>
+        <select class="ui fluid search dropdown" name="language">
+            {{#language}}
+            <option value="{{name}}">{{name}}</option>
+            {{/language}}
+        </select>
+    </div>
+    <div class="field">
+        <label>Comment</label>
+        <textarea type="text" name="comment" placeholder="A little comment ..."></textarea>
+    </div>
+    <button class="ui button" type="submit">Add</button>
+</form>
+{{>static/footer}}
