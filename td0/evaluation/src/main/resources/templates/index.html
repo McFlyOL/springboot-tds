@@ -4,7 +4,7 @@
         <h1>Gestion de Scripts | INDEX</h1>
         <h2 class="ui teal image header">
             {{#connection}}
-                Vous êtes connecté {{#userC}}{{firstname}}{{/userC}}              
+                Bienvenue {{#userC}}{{firstname}}{{/userC}} !          
             {{/connection}}    
 
             {{#message_deco}}
@@ -13,6 +13,9 @@
         </h2>      
     </div>  
 </div>
+<h3>
+    <p>Login : {{#userC}}{{firstname}}{{/userC}}</p>
+    <p>E-mail : {{#userC}}{{email}}{{/userC}} </p>
 <div class="ui middle align center aligned container">
     {{#message_deco}}
         <a href="/login" class="ui button center" tabindex="0">Login</a>
@@ -23,5 +26,25 @@
         <a href="/logout" class="ui button center" tabindex="0">Logout</a>
     {{/connection}}
 </div>
+{{#connection}}
+    <a href="/script/new" class="ui button">Add a script</a>
+    <table class="ui celled striped table">
+        <thead>
+        <tr><th colspan="4">
+            Scripts de l'utilisateur
+        </tr>
+        </thead>
+        <tbody>
+        {{#listeScripts}}
+        <tr>
+            <td>{{title}}</td>
+            <td>{{description}}</td>
+            <td>{{creationDate}}</td>
+            <td><a href="/script/{{id}}" class="ui button"><i class="eye icon"></i></a></td>
+        </tr>
+        {{/listeScripts}}
+        </tbody>
+    </table>
+{{/connection}}
 
 {{>static/footer}}

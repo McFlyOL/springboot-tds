@@ -1,5 +1,6 @@
 package s4.spring.evaluation.Controllers;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -42,4 +43,57 @@ public class ScriptController {
     @Autowired
     private repositoryHistory repositoryHistory;
 
+
+    @GetMapping("script/new")
+    public String newScript(ModelMap model, HttpSession session)
+    {
+        User user = (User)session.getAttribute("userC");
+        if(user!=null) {
+            List<Language> lang = this.repositoryLanguage.findAll();
+            List<Category> cat = this.repositoryCategory.findAll();
+            model.put("language", lang);
+            model.put("category", cat);
+            return "script/new";
+        }
+        else
+        {
+            return "login";
+        }
+    }
+
+    @PostMapping(value= {"script/submit", "script/submit/{id}"})
+    public RedirectView newScriptSubmit(@PathVariable(required = false) String id, @RequestParam String title, @RequestParam String date, @RequestParam String description,@RequestParam String language, @RequestParam String category, @RequestParam String content, HttpSession session){
+        User user =  (User) session.getAttribute("userC");
+
+        if(user!=null){
+            if(id == null){
+                Script script = new Script(title,description,content,date,repositoryLanguage.findByName(language),user,repositoryCategory.findByName(category));
+                repositoryScript.saveAndFlush(script);
+            }else{
+                Script script = repositoryScript.findById(Integer.parseInt(id));
+                script.setTitle(title);
+                script.setDescription(description);
+                script.setContent(content);
+                script.setCreationDate(date);
+                script.setUser(user);
+                repositoryScript.saveAndFlush(script);
+                return new RedirectView("/index");
+            }
+        }
+        return new RedirectView("/index");
+    }
+
+    @GetMapping("script/{id}")
+    public String modifyScript(ModelMap model, @PathVariable int id, HttpSession session){
+        if(session.getAttribute("userC")!=null){
+            List<Language> lang = this.repositoryLanguage.findAll();
+            List<Category> cat = this.repositoryCategory.findAll();
+            model.put("language", lang);
+            model.put("category", cat);
+            model.put("script",repositoryScript.findById(id));
+            return "script/edit";
+        }else{
+            return "login";
+        }
+    }
 }

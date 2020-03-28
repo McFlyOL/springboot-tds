@@ -30,7 +30,7 @@ public class Script {
     public Script() {
     }
 
-    public Script(int id, String title, String description, String content, String creationDate, Language language, User user, List<History> histories) {
+    public Script(int id, String title, String description, String content, String creationDate, Language language, User user, Category category) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -38,7 +38,24 @@ public class Script {
         this.creationDate = creationDate;
         this.language = language;
         this.user = user;
-        this.histories = histories;
+        this.category=category;
+    }
+
+    public Script(String title, String description, String content, String creationDate, Language language, User user, Category category) {
+        this.title = title;
+        this.description = description;
+        this.content = content;
+        this.creationDate = creationDate;
+        this.language = language;
+        this.user = user;
+        this.category=category;
+    }
+
+    public Script(String title, String description, String content, String creationDate) {
+        this.title = title;
+        this.description = description;
+        this.content = content;
+        this.creationDate = creationDate;
     }
 
     public int getId() {

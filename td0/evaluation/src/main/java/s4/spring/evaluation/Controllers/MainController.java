@@ -31,15 +31,7 @@ public class MainController {
     private repositoryUser repositoryUser;
 
     @Autowired
-    private repositoryCategory repositoryCategory;
-
-    @Autowired
-    private repositoryLanguage repositoryLanguage;
-
-    @ModelAttribute("userC")
-    public User userC() {
-        return new User();
-    }
+    private repositoryScript repositoryScript;
 
     @GetMapping("/")
     public String home(ModelMap model){
@@ -52,9 +44,10 @@ public class MainController {
         if(session.getAttribute("userC")!=null){
             model.addAttribute("userC", session.getAttribute("userC"));
             model.put("connection",true);
+            model.addAttribute("listeScripts", repositoryScript.findByUser((User) model.getAttribute("userC")));
             return "index";
         }
-        return "index";   
+        return "login";   
     }
 
     @GetMapping("/login")
