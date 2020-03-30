@@ -1,0 +1,40 @@
+{{>static/header}}
+<form class="ui form" action="/script/submit/{{id}}" method="post">
+    <div class="ui middle aligned center aligned container">
+        <h1>Gestion de Scripts | INDEX</h1>
+    </div>
+    <div class="field">
+        <label>Title</label>
+        <input type="text" name="title" value="{{script.title}}" placeholder="The title of your Script">
+    </div>
+    <div class="field">
+        <label>Description</label>
+        <textarea type="text" name="description" placeholder="The description...">{{script.description}}</textarea>
+    </div>
+    <div class="field">
+        <label>Content</label>
+        <textarea name="content">{{script.content}}</textarea>
+    </div>
+    <div class="field">
+        <label>Creation date</label>
+        <input type="date" name="date" value="{{script.creationDate}}">
+    </div>
+    <div class="field">
+        <label>Category</label>
+        <select class="ui fluid search dropdown" name="category">
+            {{#category}}
+            <option value="{{name}}">{{name}}</option>
+            {{/category}}
+        </select>
+    </div>
+    <div class="field">
+        <label>Language</label>
+        <select class="ui fluid search dropdown" name="language">
+            {{#language}}
+            <option value="{{name}}">{{name}}</option>
+            {{/language}}
+        </select>
+    </div>
+    <button class="ui button" type="submit">Edit</button>
+</form>
+{{>static/footer}}
