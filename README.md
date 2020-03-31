@@ -28,7 +28,7 @@ SpringBoot TD'S
  **[Evaluation](https://github.com/McFlyOL/springboot-tds/tree/evaluation)**
  -----------------
  
- **[TD5 : SpringBoot](https://github.com/McFlyOL/springboot-tds/tree/td5)**
+ **[TD5 : SpringBoot](https://github.com/McFlyOL/springboot-tds/tree/evaluation)**
 
  * Back-end :
    * Routes
@@ -36,7 +36,7 @@ SpringBoot TD'S
    * Models
    * JPA/Hibernate
  
- **[TD6 : SpringBoot - VueJS]()**
+ **[TD6 : SpringBoot - VueJS](https://github.com/McFlyOL/springboot-tds/tree/evaluation)**
 
  * Back-end :
    * Service Rest
