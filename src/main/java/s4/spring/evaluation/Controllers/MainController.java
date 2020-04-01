@@ -1,8 +1,5 @@
 package s4.spring.evaluation.Controllers;
 
-import java.util.List;
-
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,15 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
-import s4.spring.evaluation.repositories.repositoryCategory;
-import s4.spring.evaluation.repositories.repositoryHistory;
-import s4.spring.evaluation.repositories.repositoryLanguage;
 import s4.spring.evaluation.repositories.repositoryScript;
 import s4.spring.evaluation.repositories.repositoryUser;
-import s4.spring.evaluation.models.Language;
-import s4.spring.evaluation.models.Script;
 import s4.spring.evaluation.models.User;
-import s4.spring.evaluation.models.Category;
+
 
 @Controller
 @RequestMapping(method={RequestMethod.POST,RequestMethod.GET})

@@ -30,8 +30,12 @@
     <a href="/script/new" class="ui button">Add a script</a>
     <table class="ui celled striped table">
         <thead>
-        <tr><th colspan="4">
-            Scripts de l'utilisateur
+        <tr>
+            <th>Title</th>
+            <td>Description</td>
+            <td>Creation Date</td>
+            <td>Category</td>
+            <td>Edit</td>
         </tr>
         </thead>
         <tbody>
@@ -40,6 +44,7 @@
             <td>{{title}}</td>
             <td>{{description}}</td>
             <td>{{creationDate}}</td>
+            <td>{{category.name}}</td>
             <td><a href="/script/{{id}}" class="ui button"><i class="eye icon"></i></a></td>
         </tr>
         {{/listeScripts}}
