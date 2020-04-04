@@ -27,7 +27,7 @@ public class ScriptController
         vue.addDataRaw("scripts", "[]");
         vue.addDataRaw("headers", "[{text:'Titre', value:'title'}, {text:'Categorie', value:'category.name'}, {text:'Langage', value: 'language.name'}, {text:'Description', value:'description'}]");
         vue.addDataRaw("choices", "[{text:'Titre', value:'titre'},{text:'Description', value:'description'},{text:'Contenu', value:'content'}]");
-        vue.addWatcher("type_recherche","this.type_recherche();" );
+        vue.addWatcher("type_recherche","this.rechercher();" );
         vue.addWatcher("script_recherchee","this.rechercher();" );
 
         vue.addMethod("rechercher", "let self=this;"+Http.post("/rest/search",(Object)"{'type_recherche': this.type_recherche, 'script_recherchee': this.script_recherchee}", "self.scripts = response.data;"));  
