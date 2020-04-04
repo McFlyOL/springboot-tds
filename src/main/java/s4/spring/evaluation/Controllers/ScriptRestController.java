@@ -47,4 +47,21 @@ public class ScriptRestController
     public void delete(@PathVariable int id){
         repositoryScript.deleteById(id);
     }
+
+    @PostMapping(value = "/rest/search")
+	public List<Script> recupererListes(@RequestBody Recherche script_recherche){
+		String type_recherche = script_recherche.gettype_recherche();
+        String script_recherchee = script_recherche.getScript_recherchee();
+        
+        switch (type_recherche) {
+            case "titre":
+                return repositoryScript.findByTitle(script_recherchee);
+            case "description":
+                return repositoryScript.findByDescription(script_recherchee);
+            case "content":
+                return repositoryScript.findByContent(script_recherchee);
+            default:
+                return null;
+        }
+	}
 }

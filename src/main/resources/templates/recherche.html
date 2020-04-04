@@ -1,0 +1,26 @@
+{{>static/headerVue}}
+<div class="ui middle aligned center aligned grid">          
+    <h1>Gestion de Scripts | Rechercher un script</h1>
+</div>
+<div class="ui middle aligned center aligned grid">          
+    <a href="/index" class="ui button">Retourner à l'index</a>
+</div>
+            <v-row align="center">
+                <v-col>
+                    <v-select
+                            append-icon="search"
+                            :items="choices"
+                            label="Rechercher par..."
+                            v-model="type_recherche"
+                    ></v-select>
+                </v-col>
+                <v-col>
+                    <v-text-field
+                            label="Script recherché..."
+                            v-model="script_recherchee"
+                    ></v-text-field>
+                </v-col>
+            </v-row>
+            <v-data-table :headers="headers" :items="scripts" :items-per-page="5" sort-by="title"></v-data-table>
+{{>static/footerVue}}
+{{{vue  }}}

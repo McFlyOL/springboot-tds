@@ -13,10 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import s4.spring.evaluation.repositories.repositoryCategory;
-import s4.spring.evaluation.repositories.repositoryHistory;
 import s4.spring.evaluation.repositories.repositoryLanguage;
 import s4.spring.evaluation.repositories.repositoryScript;
-import s4.spring.evaluation.repositories.repositoryUser;
 import s4.spring.evaluation.models.Language;
 import s4.spring.evaluation.models.Script;
 import s4.spring.evaluation.models.User;

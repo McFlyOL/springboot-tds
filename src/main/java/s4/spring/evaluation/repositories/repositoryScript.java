@@ -15,4 +15,6 @@ public interface repositoryScript extends JpaRepository<Script,Integer> {
     List<Script> findByDescription(String description);
     List<Script> findByContent(String content);
     List<Script> findByCreationDate(String creationDate);
+    List<Script> findByCategory(String category);
+    List<Script> findByLanguage(String language);
 }

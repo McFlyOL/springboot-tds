@@ -1,6 +1,7 @@
 package s4.spring.evaluation.models;
 
 import javax.persistence.*;
+
 import java.util.List;
 
 @Entity

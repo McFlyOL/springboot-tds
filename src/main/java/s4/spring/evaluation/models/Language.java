@@ -1,6 +1,9 @@
 package s4.spring.evaluation.models;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 @Entity
@@ -9,11 +12,15 @@ public class Language {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
 
-    private String name;
-
+	private String name;
+	
+	@JsonIgnore
     @OneToMany(cascade=CascadeType.ALL, mappedBy = "language")
 	private List<Script> scripts;
 
+	public Language(){
+		
+	}
 	public int getId() {
 		return id;
 	}
